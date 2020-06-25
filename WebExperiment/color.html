@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <title>Get Start</title>
+            <style>
+                .mid{
+                    text-align: center;
+                    padding: 10px;
+                }
+                
+            </style>
+            <script>
+                
+               function loadcolor(){
+                var bgcolor = localStorage.getItem("bgcolor");
+                if(bgcolor==null){
+                    bgcolor="blue";
+                }
+                document.body.style.backgroundColor  = bgcolor;
+               }
+                function change(){
+                    var bgcolor = localStorage.getItem("bgcolor") ;
+                    if(bgcolor=="blue"){
+                        var newcolor = "yellow";
+                    }
+                    else if(bgcolor=="yellow"){
+                        var newcolor = "red";
+                    }
+                    else if(bgcolor=="red"){
+                        var newcolor = "green";
+                    }
+                    else if(bgcolor=="green"){
+                        var newcolor = "blue";
+                    }
+                    else if(bgcolor==null){
+                        var newcolor = "blue";
+                    }
+                    document.body.style.backgroundColor  = newcolor;
+                    localStorage.setItem("bgcolor", newcolor);
+                }
+                document.addEventListener("click", function(){
+                    change();
+                });
+               
+            </script>
+        </head>
+        <body onload="loadcolor()" >
+            <div class="container" >
+                <div class=" w3-animate-zoom jumbotron w3-card-4 w3-display-middle ">
+                  <h1 class = "mid">Changing colors</h1>      
+                  <p class ="mid">Click anywhere to change the background color of the webpage</p>
+                 
+                  
+                </div>
+              </div>
+        </body>
+        
+    </html>

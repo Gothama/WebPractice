@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <script>
+           
+                
+         
+                  function download() {
+                    var filename = "webtext.txt";
+                    var text = document.getElementById("myTextArea").value;
+                      var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+                
+
+            </script>
+    </head>
+    <body background="Images/tempBack.jpg" style="background-repeat: no-repeat;background-size:cover;">
+        <div class="container">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="jumbotron w3-animate-zoom" style="margin-top:10%; width: fit-content;">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Text Area</label>
+                        <textarea class="form-control" id="myTextArea" rows="10"></textarea>
+                      </div>
+
+                    <button type="button" class="btn btn-primary" onclick="download()">Download</button>
+                  </form>
+              </div>
+
+
+            
+            </div>
+              <div class="col-sm-4"></div>
+
+           
+        </div>
+       
+    </body>
+
+
+
+   
+</html>

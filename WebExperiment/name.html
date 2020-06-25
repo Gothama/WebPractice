@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <title>My Name</title>
+            <style>
+                .mid{
+                    text-align: center;
+                    padding: 10px;
+                }
+               
+            </style>
+            <script>
+                function create(){
+                    var name = document.getElementById("name").value;
+                    localStorage.setItem("name", name);
+                }
+                function nameatload(){
+                    var name = localStorage.getItem("name");
+
+                     document.getElementById("name").value = name;
+                }
+               
+            </script>
+        </head>
+        <body background="Images/mynameback.jpg" style="background-repeat: no-repeat;background-size:cover;" onload="nameatload()" onunload="create()">
+            <div class="container" >
+                <div class=" w3-animate-zoom jumbotron w3-card-4 w3-display-middle " >
+                  <h1 class = "mid">Enter Your Name</h1>      
+                  <p class ="mid"><input id = "name" type="text" class="form-control "  placeholder="Enter Name" size="4"></p>
+                  
+                </div>
+              </div>
+        </body>
+
+    </html>

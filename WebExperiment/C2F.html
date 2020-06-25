@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tempreature Converter</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <script>
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+
+        function conversion(){
+            
+            var tempreature= document.getElementById("temp").value;
+            document.getElementById("temp").value = "";
+            if((/C/.test(tempreature))){
+                
+                var ce = tempreature.replace(/C/, "");
+                document.getElementById("tempbanner").innerHTML = "Tempreature in Farenheit";
+                document.getElementById("converted").value =((parseFloat(ce)*1.8) + 32).toFixed(2).toString() + "F";
+                
+            }
+            else if((/F/.test(tempreature))){
+                var ce = tempreature.replace(/F/, "");
+                document.getElementById("tempbanner").innerHTML = "Tempreature in Celcuis";
+                document.getElementById("converted").value = ((parseFloat(ce)-32)/1.8).toFixed(2).toString() + "C";
+            }
+            else{
+                alert("pls follow the instructions. Add the tempreature with its relevant unit - F/C");
+            }
+        }
+    </script>
+
+
+
+    <body background="Images/tempBack.jpg" style="background-repeat: no-repeat;background-size:cover;">
+        <div class="container">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="jumbotron w3-animate-zoom" style="margin-top:10%; width: 500px; margin-left: auto;">
+                <form>
+                    <div class="form-group">
+                      <label for="tempreature" >Enter the tempreature to be converted with the relevant unit</label><br><br>
+                      <input type="text" class="form-control" id = "temp" style="width: 100px;" placeholder="Temp C/F" >
+                     
+                    </div>
+                    
+                    <div class="form-check">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="conversion()">Convert</button>
+                  </form>
+              </div>
+
+
+              <div class="jumbotron w3-animate-zoom" style="margin-top:8%;width: 500px;"">
+                <form>
+                    <div class="form-group">
+                      <label id="tempbanner"></label>
+                      <br><br>
+                      
+                      <input id ="converted" type="text" class="form-control" placeholder="Answer" style="width: 100px;" step=".01">
+                     
+                    </div>
+                    
+                  </form>
+              </div>
+            </div>
+              <div class="col-sm-4"></div>
+
+           
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Weather at Colombo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script>
+      
+
+function getWeather(){
+    var input = "colombo";
+    var main = document.querySelector('#name');
+    var temp = document.querySelector('.temp');
+    var desc = document.querySelector('.desc');
+    var clouds = document.querySelector('.clouds');
+    var button= document.querySelector('.submit');
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+input+'&appid=0525566d24e2c5067b285f275fe2d95b')
+    .then(response => response.json())
+    .then(data => {
+          var tempValue = data['main']['temp'];
+          var nameValue = data['name'];
+          var descValue = data['weather'][0]['description'];
+
+          main.innerHTML = nameValue;
+          desc.innerHTML = "Desc - "+descValue;
+          temp.innerHTML = "Temp - "+(tempValue - 273.15) + " <sup>0</sup>C" ;
+          input.value ="";
+
+        })
+
+    }
+    </script>
+    </head>
+    <body>
+      
+        <body background="Images/colTemp.jpg" style="background-repeat: no-repeat;background-size:cover;" onload="getWeather()">
+          <div class="container" > 
+            <div class=" w3-animate-zoom jumbotron w3-card-4 w3-display-middle ">
+              <div class="card">
+                <h1 class="name" id="name"></h1>
+                <p class="temp"></p>
+                <p class="clouds"></p>
+                <p class="desc"></p>
+              </div>
+            </div>
+          </div>
+    </body>
+    </html>

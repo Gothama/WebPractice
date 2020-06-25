@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Body Mass Index</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <script>
+        function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+function BMIcal(){
+        var h = document.getElementById("h").value;
+        var w= document.getElementById("w").value;
+        var bmi = (w/Math.pow(h*0.01,2)).toFixed(2);
+        document.getElementById("a").value= bmi.toString();
+        document.getElementById("a").style.width="fit-content";
+        document.getElementById("h").value = "";
+        document.getElementById("w").value = "";
+        document.getElementById("formula").innerHTML = "BMI = (Weight(kg)/Height(cm)x 0.01)<sup>2<sup>";
+      
+    }
+    </script>
+
+
+
+    <body background="Images/bmiimage.jpg" style="background-repeat: no-repeat;background-size:cover;">
+        <div class="container">
+          <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+              <div class="jumbotron w3-animate-zoom" style="margin-top:10%; width: fit-content;">
+                  <form>
+                      <div class="form-group">
+                        <label for="weight">Weight (Kg) </label>
+                        <input type="text" id = "w" class="form-control" style="width:100px;" placeholder="Weight" onkeypress="return isNumber(event)">
+                      
+                      </div>
+                      <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <input type="text" id = "h" class="form-control"  style="width: 100px;" step=".01"    placeholder="Height" maxlength="4" size="4" onkeypress="return isNumber(event)">
+                      </div>
+                      <div class="form-check">
+                      </div>
+                      <button type="button" class="btn btn-primary" onclick="BMIcal()">Calculate BMI</button>
+                  </form>
+                </div>
+
+
+                <div class="jumbotron w3-animate-zoom" style="margin-top:8%;width: 500px;"">
+                  <form>
+                      <div class="form-group">
+                        <label for="number1">Answer</label>
+                        <input type="text" class="form-control" id = "a" placeholder="Answer"  style="width: 100px;"  readonly > <br><br>
+                        <label id="formula"></label>
+                      </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-4"></div>
+        </div>
+    </body>
+</html>
